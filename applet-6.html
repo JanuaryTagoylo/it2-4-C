@@ -11,14 +11,13 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <title>About Me - Muse Dash Style</title>
+    <title>To-Do List - Muse Dash Style</title>
 
     <style>
         body {
             background-color: #fffae6;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             color: #333;
-            margin: 0;
         }
 
         nav {
@@ -33,44 +32,59 @@
             color: #ffd700 !important;
         }
 
-        .info-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .info-box {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .info-box:hover {
-            transform: scale(1.05);
+        .container-fluid {
+            max-width: 60%;
+            margin: 3rem auto;
         }
 
         h2 {
+            text-align: center;
+            font-weight: bold;
             color: #ff4081;
-            font-size: 2rem;
             margin-bottom: 1.5rem;
-            text-shadow: 1px 1px #ffcc00;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .input-group {
+            margin-bottom: 1.5rem;
         }
 
-        li {
-            margin: 1rem 0;
+        .btn {
+            background-color: #ffa351;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-        strong {
-            color: #ff6f61;
+        .btn:hover {
+            background-color: #ff8c00;
+            transform: scale(1.05);
+        }
+
+        .list-group-item {
+            background-color: #eed971;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            transition: transform 0.2s;
+        }
+
+        .list-group-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .remove-btn {
+            background: transparent;
+            border: none;
+            color: #ff5722;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -115,25 +129,18 @@
         </div>
     </nav>
 
-    <div class="info-container">
-        <div class="info-box">
-            <h2>About Me</h2>
-            <ul>
-                <li>
-                    <p><strong>Name:</strong> January Elijah Tagoylo</p>
-                </li>
-                <li>
-                    <p><strong>Age:</strong> 22</p>
-                </li>
-                <li>
-                    <p><strong>Occupation:</strong> Student</p>
-                </li>
-                <li>
-                    <p><strong>Course:</strong> Bachelor of Science in Information Technology</p>
-                </li>
-            </ul>
+    <div class="container-fluid">
+        <h2>To-Do List</h2>
+        <div class="input-group mb-4">
+            <textarea class="form-control" id="todoInput" placeholder="Add a new task" rows="3"></textarea>
+            <div class="input-group-append" style="margin-left: .5rem;">
+                <button class="btn" id="addButton">Add</button>
+            </div>
         </div>
+        <ul id="todoList" class="list-group"></ul>
     </div>
+
+    <script src="applet-6.js"></script>
 </body>
 
 </html>
